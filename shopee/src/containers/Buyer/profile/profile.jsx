@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import { useSelector } from 'react-redux';
-import {PATHS} from '../../config';
-import Header from '../../components/header/header';
-import Footer from '../../components/footer/footer';
+import {PATHS} from '../../../config';
+import Header from '../../../components/header/header';
+import Footer from '../../../components/footer/footer';
 
 
 const Profile = ()=>{

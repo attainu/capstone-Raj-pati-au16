@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link } from 'react-router-dom';
-import {PATHS } from '../../config';
+import {PATHS } from '../../../config';
 
 function NotFound() {
     return (
