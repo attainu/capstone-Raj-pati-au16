@@ -1,11 +1,15 @@
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Headerlink from '../headerlinks';
 import {PATHS } from '../../config';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import Logout from '../logout/index'
-
+import { useEffect } from 'react';
 const Nav = ()=>{
     const isloggedin = useSelector(state=>state.auth);
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        d
+    },[])
     return (
         <>
         <header>

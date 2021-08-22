@@ -1,4 +1,10 @@
 export const authtypes = {
-    login:'auth/login',
-    logout:'auth/logout'
+    loginBuyer:'LOGIN',
+    logoutBuyer:'LOGOUT'
 }
+
+export const dataTypes ={
+    product:'ADD_DATA',
+    cart:'CART_DATA'
+}
+

@@ -1,13 +1,15 @@
 import {authtypes} from '../aciontypes';
 
+const initialState = []
+
 const auth = (state , action)=>{
-    state = state || !!localStorage.getItem('isAuth');
+    state = state || initialState;
 
     switch (action.type) {
-        case authtypes.login:
+        case authtypes.loginBuyer:
             localStorage.setItem('isAuth' , true);
-            return true;
-        case authtypes.logout:
+            return action.payload;
+        case authtypes.logoutBuyer:
             localStorage.removeItem('isAuth');
             localStorage.removeItem('Token');
             return false;
