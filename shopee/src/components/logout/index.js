@@ -1,13 +1,13 @@
 import {Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import authaction from '../../Redux/actions/authaction'
+import {logout} from '../../Redux/actions/authaction'
 
 const Logout = (props)=>{
     const {to , name} = props
     const dispatch = useDispatch()
     const logoutuser=(e)=>{
-        e.preventDefault()
-        dispatch(authaction.logout())
+        
+        dispatch(logout())
     }
     return(
         <Link onClick={logoutuser}className="nav-link" to={to}>{name}</Link>
