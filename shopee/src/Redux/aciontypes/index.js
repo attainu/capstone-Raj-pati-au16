@@ -11,6 +11,20 @@ export const productTypes = {
     FETCH_CATEGORY_PRODUCTS : "FETCH_CATEGORY_PRODUCTS"
 };
 
+export const profileTypes = {
+    UPDATE_PROFILE :"UPDATE_PROFILE",
+}
+
 export const cartTypes ={
-    GET_CART:'GET_CART'
+    GET_CART:'GET_CART',
+    GET_AMOUNT:'GET_AMOUNT'
+}
+
+export const addressTypes={
+    ADD_ADDRESS :'ADD_ADDRESS',
+}
+
+export const checkoutTypes={
+    CHECKOUT_REQUEST:'CHECKOUT_REQUEST',
+    CHECKOUT_SUCCESS :'CHECKOUT_SUCCESS'
 }

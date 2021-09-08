@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { Formik } from "formik";
 import Header from "../../components/header/header";
 import * as yup from "yup";
@@ -19,14 +18,11 @@ const Login = ({ history }) => {
     return (
       <Formik
         initialValues={{ email: "", password: "" }}
-        onSubmit={async (values, { setSubmitting }) => {
+        onSubmit={async (values) => {
           console.log(values);
           dispatch(login(values, 'login'));
           history.push(PATHS.ALLPRODUCT)
-          setTimeout(() => {
-            console.log("logging in", values);
-            setSubmitting(false);
-          }, 2000);
+        
         }}
         validationSchema={yup.object().shape({
           email: yup.string().email().required("Email is Required"),
@@ -42,7 +38,6 @@ const Login = ({ history }) => {
             values,
             touched,
             errors,
-            isSubmitting,
             handleChange,
             handleBlur,
             handleSubmit,
@@ -52,7 +47,7 @@ const Login = ({ history }) => {
             <>
               <Header />
               <div className="contain">
-                <form autoComplete="off" onSubmit={handleSubmit}>
+                <form  className="form"autoComplete="off" onSubmit={handleSubmit}>
                   <h3>Login</h3>
                   <div className="input">
                     <div className="inputBox">
@@ -99,7 +94,7 @@ const Login = ({ history }) => {
                       )}
                     </div>
                   </div>
-                  <button type="submit" className="btn" disabled={isSubmitting}>
+                  <button type="submit" className="btn">
                     Submit
                   </button>
                 </form>

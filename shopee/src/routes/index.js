@@ -8,7 +8,11 @@ import Products from '../containers/products'
 import ProductByid from '../containers/productByid'
 import HomeEssentials from '../containers/HomeEssentials';
 import Grocery from '../containers/Grocery';
-import Electronics from '../containers/Electronics'
+import Electronics from '../containers/Electronics';
+import Cart from '../containers/Cart';
+import Address from '../containers/Address';
+import Checkout from '../containers/checkout';
+import Checkoutsuccess from '../containers/checkoutSuccess';
 
 const routes = [
     {exact:true , path:PATHS.HOME , component:Home},
@@ -17,6 +21,10 @@ const routes = [
     {exact:true , path:PATHS.SIGNUP, component:Signup},
     {exact:true , path:PATHS.ALLPRODUCT, component:Products},
     {exact:true , path:'/product/:id', component:ProductByid},
+    {exact:true , path:PATHS.CART , component:Cart},
+    {exact:true , path:PATHS.CHECKOUT , component:Checkout},
+    {exact:true , path:PATHS.CHECKOUTSUCCESS , component:Checkoutsuccess},
+    {exact:true , path:PATHS.ADDRESS , component:Address},
     {exact:true , path:PATHS.ELECTRONIC, component:Electronics},
     {exact:true , path:PATHS.GROCERY, component:Grocery},
     {exact:true , path:PATHS.HOMEESSENTIALS, component:HomeEssentials},

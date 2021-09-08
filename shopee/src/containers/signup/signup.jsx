@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { useDispatch , useSelector } from 'react-redux';
 
 import {PATHS} from '../../config';
-import {login} from '../../Redux/actions/authaction';
+import {signup} from '../../Redux/actions/authaction';
 
 
 const Signup = ({history}) => {
@@ -18,15 +18,10 @@ const Signup = ({history}) => {
         return(
             <Formik
             initialValues={{firstname:"", lastname:"",email:"" , password :""}}
-            onSubmit= {async(values , {setSubmitting}) => {
+            onSubmit= {async(values ) => {
                 console.log(values)
-                dispatch(login(values, 'signup'));
+                dispatch(signup(values, 'signup'));
                 history.push(PATHS.ALLPRODUCT)
-                setTimeout(()=>{
-                    console.log("signup in" , values)
-                    setSubmitting(false)
-                }, 2000);
-               
             }}
 
     
@@ -54,7 +49,6 @@ const Signup = ({history}) => {
                     values,
                     touched,
                     errors,
-                    isSubmitting,
                     handleChange,
                     handleBlur,
                     handleSubmit
@@ -62,7 +56,7 @@ const Signup = ({history}) => {
     
                return(
                     <>
-             11       <Header/>
+                   <Header/>
                     <div className="container">
                         <form autoComplete="off" onSubmit={handleSubmit}>
                             <h3>Signup</h3>
@@ -136,7 +130,7 @@ const Signup = ({history}) => {
                                     )}
                                 </div>
                             </div>
-                            <button type="submit" className="btn" disabled= {isSubmitting}>Submit</button>
+                            <button type="submit" className="btn" >Submit</button>
                         </form>
                     </div>
                     </>

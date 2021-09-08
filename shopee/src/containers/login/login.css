@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center; */
     min-height: 100vh;
-    /* background: #131419; */
+    background: #131419; 
 }
 
 .contain{
@@ -18,10 +18,10 @@ body{
     justify-content: center;
     align-items: center;
 }
-form{
+.form{
     position:relative;
     padding:40px 40px 60px;
-    width:70%;
+    width:35%;
     background: #131419;
     border-radius: 10px;
     text-align: center;

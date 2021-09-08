@@ -1,0 +1,15 @@
+.address{
+    border:2px solid black;
+    margin:3%;
+    color:white;
+}
+
+h4{
+    color:white;
+}
+
+.btn-outline-primary{
+    text-decoration:none;
+    margin-left:3%;
+
+}

@@ -1,5 +1,4 @@
 import Header from '../../components/header/header';
-import Footer from '../../components/footer/footer';
 import React ,{useEffect} from 'react';
 import {useDispatch , useSelector } from 'react-redux';
 import {fetchCategory} from '../../Redux/actions/productAction';
@@ -9,16 +8,16 @@ import { Redirect } from "react-router";
 
 
 const HomeEssentials = () =>{
-    const products = useSelector(state => state.product_category_Reducer.products);
-    const isloggedin = useSelector(state => state.isAuth)
+    const products = useSelector(state => state.product_category_Reducer.Products);
+    const isloggedin = useSelector(state => state.auth.isAuth)
     const dispatch = useDispatch();
-    useEffect(async()=> {
+    useEffect(()=> {
         if(isloggedin){
             dispatch(fetchCategory('Home_Essentials'));
         }else{
             <Redirect to={PATHS.LOGIN} />
         }
-    },[isloggedin])
+    },[dispatch,isloggedin])
     return (
        <>
         <Header/>
@@ -33,7 +32,6 @@ const HomeEssentials = () =>{
                     </div>
                 ))}
             </div> 
-        <Footer/>
        </>
     )
 }

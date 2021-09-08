@@ -1,4 +1,6 @@
-
+.navbar-brand{
+    text-decoration: none;
+}
 .navbar{
     margin:0px;
     padding: 0px;
@@ -7,7 +9,8 @@
     
 }
 .nav-item{
-    margin-left:10%;
+    margin-left:2rem;
+    font-weight: bolder;
 }
 
 .form-control{
@@ -28,7 +31,9 @@
     padding: 4px;
     background-color: rgb(255, 188, 5);
 }
-#cart{
-    margin-right: 4%;
+.cart{
+    margin-right: 3%;
     cursor: pointer;
+    margin-right: 5rem;
+    
 }

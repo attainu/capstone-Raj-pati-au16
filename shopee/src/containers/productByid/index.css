@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
+.fa-spinner{
+    color:white;
+}
+.product-container{
+    margin:2% 2% 2% 3%;
+    padding:2%;
+    position: relative;
+
+}
+.prod-image{
+    width:50%;
+    height:600px;
+
+}
+.prod-detail{
+    position: absolute;
+    top:10%;
+    left:53%;
+    color:rgb(167, 243, 255);
+    font-family: 'Damion', cursive;
+
+}
+
+h1{
+    color: rgb(0, 179, 255);
+}
+h2{
+    margin-top: 3%;
+    text-align: center;
+}
+strong {
+    color:green;
+}
+.btn-addtocart{
+    position: absolute;
+    font-size: 20px;
+    left:30%;
+    width:20%;
+    padding:1%;
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+    background: rgba(95, 238, 107, 0.809);
+    border-radius: 2px;
+}
+.btn-contain{
+    position: absolute;
+    left:2%;
+    top:100%;
+    margin: 0;
+    width:10%;
+    height: 45px;
+    background: #b3b3b5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px;
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.05),
+    5px 5px 15px rgba(0,0,0,0.5);
+    border: white solid;
+}
+.decrease{
+    padding: 6%;
+    margin-top: 2%;
+    width:35%;
+    border-radius: 2px;
+    background:white;
+    color:black;
+}
+
+.increase{
+    padding: 6%;
+    margin-top: 2%;
+    width:35%;
+    border-radius: 2px;
+    background:white;
+    color:black;
+}

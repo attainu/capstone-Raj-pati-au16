@@ -1,60 +1,60 @@
-import { useEffect,useState} from "react";
+import { useEffect} from "react";
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import {useParams,Link} from 'react-router-dom';
 import { useDispatch , useSelector} from "react-redux";
 import { fetchProduct } from "../../Redux/actions/productAction";
-import Header from '../../components/header/header'
+import Header from '../../components/header/header';
+import '../../../node_modules/font-awesome/css/font-awesome.min.css';
+import './index.css'
+
+
 
 const Product = ()=>{
     const product = useSelector((state) => state.selectedProductReducer);
     const userid = useSelector((state) => state.auth.userData._id);
+    console.log(userid)
     const {_id , image , productName , description , price, category} = product
     const dispatch = useDispatch(); 
     const {id} = useParams();
-    const [ count , setcount] = useState(1)
-    const addProduct=(product,id)=>{
-        axios({
-            method: 'post',
-            url: `http://localhost:4000/user/cart/${id}`,
-            data: product
-        });
-        setcount(count+=1)
+    const addProduct= async(productName,image,price,_id,uid)=>{
+       await axios.post((`http://localhost:4000/user/cart/${_id}/${uid}`),{
+           productName,
+           image,
+           price,
+           
+       })
+       .then((resp)=>{
+        console.log(resp.data.addData)
+       })
+        .catch((err)=>{
+            console.log("error" , err.data)
+        })
+        
     }
-    const removeProduct=(product,id)=>{
-        axios({
-            method: 'post',
-            url: `http://localhost:4000/user/cart/remove/${id}`,
-            data: product
-        });
-        setcount(count -= 1)
-    }
+  
 
     useEffect(()=>{
         if(id && id !== "") dispatch(fetchProduct(id))
-    },[id]);
+    },[dispatch,id]);
     
     return(
         <>
-        <Header Count = {count}/>
+        <Header/>
         <div>
             {Object.keys(product).length === 0 ? (
-            <div>...Loading</div>
+            <h2><i className="fa fa-3x fa-spinner fa-spin "></i>Loading...</h2>
             ) : (
                 <div className="product-container" key={_id}>
-                    <div>
+                    <div className="img-contain">
                         <img className="prod-image" src={image} alt=""/>
                     </div>
-                    <div>
+                    <div className="prod-detail">
                         <h1 className="prod-name">{productName}</h1>
-                        <p>Price : ₹<strong></strong>{price}</p>
+                        <h4>Price :<strong>₹{price}.00</strong></h4>
                         <h3>{category}</h3>
                         <h2>{description}</h2>
                     </div>
-                    <div>
-                        <button>Add to Cart</button>
-                        <button onClick={()=>removeProduct(product,userid)}>-</button>
-                        <button onClick={()=>addProduct(product,userid)}>+</button>
-                    </div>
+                    <Link to={`/cart/${userid}`} onClick={()=>addProduct(productName,image,price,id,userid)} className="btn-addtocart">Add to cart</Link>
                 </div>
             )};
         </div>

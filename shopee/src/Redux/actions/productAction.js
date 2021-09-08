@@ -1,4 +1,4 @@
-import {cartTypes, productTypes} from '../aciontypes';
+import {productTypes} from '../aciontypes';
 import axios from 'axios'
 
 
@@ -18,23 +18,5 @@ export const fetchProduct = (id) => async (dispatch)=>{
 export const fetchCategory = (category)=> async (dispatch)=>{
     const response = await  axios.get(`http://localhost:4000/user/${category}`);
     console.log(response.data.get_allproduct)
-    dispatch({type: productTypes.ELECTRONIC_CATEGORY, payload: response.data.get_allproduct})
-}
-
-
-
-const cartData = (userId,values)=> async(dispatch)=>{
-    return await axios({
-        method: 'get',
-        url: `http://localhost:4000/user/cart/${userId}`,
-        data: values
-        }) 
-        .then((resp) => {
-            // console.log("response", resp.data.token)
-            console.log("response", resp);
-            // dispatch({type:cartTypes.GET_CART , payload : resp.data.user})
-        })
-        .catch((err) => {
-            console.log("error", err.data);
-        });
+    dispatch({type: productTypes.FETCH_CATEGORY_PRODUCTS, payload: response.data.get_allproduct})
 }

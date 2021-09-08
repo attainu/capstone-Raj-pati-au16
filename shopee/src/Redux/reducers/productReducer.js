@@ -4,7 +4,7 @@ const initialState = {
     products:[],
 }
 const Initialstate = {
-    products:[],
+    Products:[],
 }
 export const productReducer = (state = initialState , {type,payload})=>{
     switch (type) {
@@ -27,7 +27,7 @@ export const selectedProductReducer = (state={} , {type,payload})=>{
 export const product_category_Reducer = (state = Initialstate , {type,payload})=>{
     switch (type) {
         case productTypes.FETCH_CATEGORY_PRODUCTS:
-            return {...state , products : payload};
+            return {...state , Products : payload};
         default:
             return state;
     }
